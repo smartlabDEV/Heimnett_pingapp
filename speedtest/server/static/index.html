@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeedTest Server — Heimnett</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">SpeedTest <em>Server</em></span>
+      </div>
+      <div class="server-info" id="serverInfo">
+        <span class="info-chip" id="chipHostname">…</span>
+        <span class="info-chip" id="chipIp">…</span>
+        <span class="info-chip" id="chipVersion">v1.0.0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main ── -->
+  <main>
+    <!-- Speed display -->
+    <section class="speed-display">
+      <div class="gauge" id="gauge">
+        <div class="gauge-ring" id="gaugeRing"></div>
+        <div class="gauge-inner">
+          <div class="speed-value" id="speedValue">—</div>
+          <div class="speed-unit" id="speedUnit">Mbit/s</div>
+          <div class="speed-label" id="speedLabel">Klar</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <!-- Download -->
+      <div class="test-card" id="cardDownload">
+        <div class="test-icon">🔽</div>
+        <div class="test-title">Last ned</div>
+        <div class="size-buttons">
+          <button class="size-btn active" data-test="download" data-size="10MB">10 MB</button>
+          <button class="size-btn" data-test="download" data-size="25MB">25 MB</button>
+          <button class="size-btn" data-test="download" data-size="100MB">100 MB</button>
+        </div>
+        <button class="run-btn" id="btnDownload" onclick="startTest('download')">Start</button>
+      </div>
+
+      <!-- Upload -->
+      <div class="test-card" id="cardUpload">
+        <div class="test-icon">🔼</div>
+        <div class="test-title">Last opp</div>
+        <div class="size-buttons">
+          <button class="size-btn active" data-test="upload" data-size="10MB">10 MB</button>
+          <button class="size-btn" data-test="upload" data-size="25MB">25 MB</button>
+          <button class="size-btn" data-test="upload" data-size="100MB">100 MB</button>
+        </div>
+        <button class="run-btn" id="btnUpload" onclick="startTest('upload')">Start</button>
+      </div>
+
+      <!-- Ping -->
+      <div class="test-card" id="cardPing">
+        <div class="test-icon">🏓</div>
+        <div class="test-title">Ping / Latency</div>
+        <div class="ping-desc">5 pings — vis min / avg / max</div>
+        <button class="run-btn" id="btnPing" onclick="startTest('ping')">Start</button>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section class="history">
+      <h2>Historikk <span id="historyCount">(0)</span></h2>
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>Tid</th>
+            <th>Type</th>
+            <th>Størrelse</th>
+            <th>Resultat</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody">
+          <tr id="emptyRow">
+            <td colspan="4" class="empty-row">Ingen tester kjørt ennå</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- TR-143 tip -->
+    <section class="curl-tip">
+      <h3>TR-143 / curl-eksempel</h3>
+      <pre><code id="curlExample"># Nedlasting
+curl -o /dev/null -w "%{speed_download}" http://&lt;SERVER&gt;:8080/download?size=25MB
+
+# Ping
+curl http://&lt;SERVER&gt;:8080/ping</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <span>Heimnett SpeedTest Server · TR-143-kompatibel · <a href="/docs" target="_blank">API docs</a></span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
