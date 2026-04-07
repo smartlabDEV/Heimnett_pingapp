@@ -1,0 +1,19 @@
+*** Alerts ***
+
+to = alerts@dittselskap.no
+from = smokeping@dittselskap.no
+
++someloss
+type = loss
+pattern = >0%,>0%,>0%
+comment = Pakketap detektert
+
++bigloss
+type = loss
+pattern = >20%,>20%,>20%
+comment = Stort pakketap
+
++highlatency
+type = rtt
+pattern = >150,>150,>150
+comment = Hoey latency over 150ms
