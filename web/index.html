@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heimnett Pingapp — Latency Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-icon">📡</span>
+        <div>
+          <span class="logo-name">Heimnett Pingapp</span>
+          <span class="logo-tagline">Latency monitor for norske og internasjonale tjenester</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#tjenester">Tjenester</a>
+        <a href="#integrasjon">Integrasjon</a>
+        <a href="#api-ref">API</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Kom i gang på 30 sekunder</h1>
+      <p class="hero-sub">Klon, konfigurer og start — alt med Docker.</p>
+
+      <div class="code-block-wrap">
+        <div class="code-block-header">
+          <span class="code-lang">bash</span>
+          <button class="copy-btn" data-target="cmd-start">Kopier</button>
+        </div>
+        <pre id="cmd-start"><code>git clone https://github.com/smartlabDEV/Heimnett_pingapp
+cd Heimnett_pingapp
+cp .env.example .env
+docker-compose up -d</code></pre>
+      </div>
+
+      <div class="status-grid">
+        <a class="status-item" href="http://localhost:8888" target="_blank">
+          <span class="status-dot green"></span>
+          <span class="status-label">Demo</span>
+          <span class="status-url">http://localhost:8888</span>
+        </a>
+        <a class="status-item" href="http://localhost:8000" target="_blank">
+          <span class="status-dot blue"></span>
+          <span class="status-label">API</span>
+          <span class="status-url">http://localhost:8000</span>
+        </a>
+        <a class="status-item" href="http://localhost:8000/docs" target="_blank">
+          <span class="status-dot blue"></span>
+          <span class="status-label">Swagger</span>
+          <span class="status-url">http://localhost:8000/docs</span>
+        </a>
+        <a class="status-item" href="http://localhost:8080" target="_blank">
+          <span class="status-dot orange"></span>
+          <span class="status-label">Smokeping</span>
+          <span class="status-url">http://localhost:8080</span>
+        </a>
+        <a class="status-item" href="http://localhost:3000" target="_blank">
+          <span class="status-dot purple"></span>
+          <span class="status-label">Grafana</span>
+          <span class="status-url">http://localhost:3000</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TJENESTER -->
+  <section id="tjenester" class="section">
+    <div class="container">
+      <h2>Overvakede tjenester</h2>
+      <p class="section-sub">150+ tjenester pinges hvert minutt.</p>
+
+      <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="🔍  Søk etter tjeneste eller host…" />
+      </div>
+
+      <div id="category-tabs" class="tabs"></div>
+      <div id="targets-grid" class="targets-grid"></div>
+      <div id="targets-empty" class="empty-msg" style="display:none">Ingen treff.</div>
+    </div>
+  </section>
+
+  <!-- INTEGRASJON -->
+  <section id="integrasjon" class="section section-alt">
+    <div class="container">
+      <h2>Integrasjon i din side</h2>
+      <p class="section-sub">Fire måter å bruke Heimnett Pingapp i din løsning.</p>
+
+      <div class="int-tabs">
+        <button class="int-tab active" data-tab="iframe">iframe</button>
+        <button class="int-tab" data-tab="js">JavaScript</button>
+        <button class="int-tab" data-tab="python">Python</button>
+        <button class="int-tab" data-tab="grafana">Grafana API</button>
+      </div>
+
+      <!-- iframe -->
+      <div class="int-panel active" id="tab-iframe">
+        <h3>Vis Grafana panel direkte</h3>
+        <p>Enkleste metode — embed et Grafana panel i din eksisterende side med to linjer HTML.</p>
+        <div class="code-block-wrap">
+          <div class="code-block-header">
+            <span class="code-lang">html</span>
+            <button class="copy-btn" data-target="code-iframe">Kopier</button>
+          </div>
+          <pre id="code-iframe"><code>&lt;!-- Legg til i Grafana: Configuration &gt; Security &gt; allow_embedding = true --&gt;
+&lt;iframe
+  src="http://DIN-SERVER:3000/d/latency/oversikt?kiosk&amp;theme=light"
+  width="100%"
+  height="500"
+  frameborder="0"
+  style="border-radius: 8px;"&gt;
+&lt;/iframe&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="int-panel" id="tab-js">
+        <h3>Hent data med fetch()</h3>
+        <p>Hent liste over overvakede tjenester og bygg din egen visning.</p>
+        <div class="code-block-wrap">
+          <div class="code-block-header">
+            <span class="code-lang">javascript</span>
+            <button class="copy-btn" data-target="code-js">Kopier</button>
+          </div>
+          <pre id="code-js"><code>// Hent alle tjenester
+const res = await fetch('http://DIN-SERVER:8000/api/targets')
+const { targets } = await res.json()
+
+// Filtrer pa kategori
+const gaming = await fetch('http://DIN-SERVER:8000/api/targets?category=Gaming_Steam')
+const { targets: gamingTargets } = await gaming.json()
+
+// Soek
+const netflix = await fetch('http://DIN-SERVER:8000/api/targets?search=netflix')</code></pre>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="int-panel" id="tab-python">
+        <h3>Hent data med requests</h3>
+        <div class="code-block-wrap">
+          <div class="code-block-header">
+            <span class="code-lang">python</span>
+            <button class="copy-btn" data-target="code-python">Kopier</button>
+          </div>
+          <pre id="code-python"><code>import requests
+
+BASE = 'http://DIN-SERVER:8000'
+
+# Alle tjenester
+r = requests.get(f'{BASE}/api/targets')
+targets = r.json()['targets']
+
+# Filtrer pa kategori
+gaming = requests.get(f'{BASE}/api/targets', params={'category': 'Gaming_Steam'})
+
+# Alle kategorier
+categories = requests.get(f'{BASE}/api/categories').json()</code></pre>
+        </div>
+      </div>
+
+      <!-- Grafana API -->
+      <div class="int-panel" id="tab-grafana">
+        <h3>Hent latency-data fra Grafana</h3>
+        <p>For full kontroll — hent raa latency-data og tegn dine egne grafer.</p>
+        <div class="code-block-wrap">
+          <div class="code-block-header">
+            <span class="code-lang">javascript</span>
+            <button class="copy-btn" data-target="code-grafana">Kopier</button>
+          </div>
+          <pre id="code-grafana"><code>// Generer API-nokkel i Grafana: Configuration &gt; API keys
+const GRAFANA = 'http://DIN-SERVER:3000'
+const API_KEY = 'din-api-nokkel'
+
+// Hent dashboard
+const res = await fetch(`${GRAFANA}/api/dashboards/home`, {
+  headers: { 'Authorization': `Bearer ${API_KEY}` }
+})
+
+// Hent alle datasources
+const ds = await fetch(`${GRAFANA}/api/datasources`, {
+  headers: { 'Authorization': `Bearer ${API_KEY}` }
+})</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API REFERANSE -->
+  <section id="api-ref" class="section">
+    <div class="container">
+      <h2>API Referanse</h2>
+      <p class="section-sub">Klikk på en rad for å kopiere URL-en.</p>
+
+      <div class="table-wrap">
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Metode</th>
+              <th>Endepunkt</th>
+              <th>Beskrivelse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/targets">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/targets</code></td>
+              <td>Alle tjenester (150+)</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/targets?category=Gaming_Steam">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/targets?category=X</code></td>
+              <td>Filtrer på kategori</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/targets?search=netflix">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/targets?search=X</code></td>
+              <td>Søk i navn og host</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/categories">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/categories</code></td>
+              <td>Alle kategorier</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/categories/Gaming_Steam">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/categories/{id}</code></td>
+              <td>En kategori med targets</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/hosts">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/hosts</code></td>
+              <td>Enkel host-liste for dropdown</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/api/health">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/api/health</code></td>
+              <td>Helsestatus</td>
+            </tr>
+            <tr class="clickable-row" data-url="http://localhost:8000/docs">
+              <td><span class="badge get">GET</span></td>
+              <td><code>/docs</code></td>
+              <td>Swagger UI (interaktiv)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="copy-toast" class="toast" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>Bygget for norske bredbåndsleverandører</span>
+      <a href="https://github.com/smartlabDEV/Heimnett_pingapp" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

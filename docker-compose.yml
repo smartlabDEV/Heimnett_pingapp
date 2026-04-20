@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Oslo
+    volumes:
+      - ./config:/config
+      - smokeping-data:/data
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:10.2.0
+    container_name: smokeping-grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_SERVER_ROOT_URL=${GRAFANA_URL:-http://localhost:3000}
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+    volumes:
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: smokeping-api
+    environment:
+      - SMOKEPING_TARGETS_FILE=/config/Targets
+    volumes:
+      - ./config:/config:ro
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  web:
+    image: nginx:alpine
+    container_name: smokeping-web
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    ports:
+      - "8888:80"
+    restart: unless-stopped
+
+volumes:
+  smokeping-data:
+  grafana-data:

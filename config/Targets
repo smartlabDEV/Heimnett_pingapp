@@ -1,0 +1,712 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Heimnett Latency Monitor
+title = Komplett Latency Oversikt
+remark = Overvaking av latency og pakketap til norske og internasjonale tjenester
+
++ Referanse
+menu = Referanse og DNS
+title = Referansepunkter
+
+++ Cloudflare_DNS
+menu = Cloudflare 1.1.1.1
+title = Cloudflare DNS
+host = 1.1.1.1
+
+++ Google_DNS
+menu = Google DNS 8.8.8.8
+title = Google DNS Primary
+host = 8.8.8.8
+
+++ Quad9
+menu = Quad9 DNS
+title = Quad9
+host = 9.9.9.9
+
+++ Google_DNS2
+menu = Google DNS 8.8.4.4
+title = Google DNS Secondary
+host = 8.8.4.4
+
+++ Cloudflare_DNS2
+menu = Cloudflare 1.0.0.1
+title = Cloudflare DNS Backup
+host = 1.0.0.1
+
+++ OpenDNS
+menu = OpenDNS
+title = OpenDNS
+host = 208.67.222.222
+
++ Norsk_Infra
+menu = Norsk Infrastruktur
+title = Norske ISP og Infrastruktur
+
+++ Telenor
+menu = Telenor
+title = Telenor Norge
+host = telenor.no
+
+++ Telia
+menu = Telia
+title = Telia Norge
+host = telia.no
+
+++ Altibox
+menu = Altibox
+title = Altibox
+host = altibox.no
+
+++ Ice
+menu = Ice.net
+title = Ice Bredband
+host = ice.no
+
+++ NextGenTel
+menu = NextGenTel
+title = NextGenTel
+host = nextgentel.com
+
+++ GlobalConnect
+menu = GlobalConnect
+title = GlobalConnect
+host = globalconnect.no
+
+++ Lyse
+menu = Lyse
+title = Lyse Fiber
+host = lyse.no
+
+++ Uninett
+menu = Uninett
+title = Uninett Forskningsnett
+host = uninett.no
+
+++ Norid
+menu = Norid
+title = Norid
+host = norid.no
+
+++ NKOM
+menu = NKOM
+title = Nasjonal Kommunikasjonsmyndighet
+host = nkom.no
+
++ Norske_Medier
+menu = Norske Medier
+title = Norske Nyheter og Medier
+
+++ VG
+menu = VG.no
+title = VG
+host = vg.no
+
+++ Dagbladet
+menu = Dagbladet
+title = Dagbladet
+host = dagbladet.no
+
+++ NRK
+menu = NRK
+title = NRK
+host = nrk.no
+
+++ TV2
+menu = TV2
+title = TV 2
+host = tv2.no
+
+++ Aftenposten
+menu = Aftenposten
+title = Aftenposten
+host = aftenposten.no
+
+++ E24
+menu = E24
+title = E24 Naeringsliv
+host = e24.no
+
+++ BT
+menu = Bergens Tidende
+title = Bergens Tidende
+host = bt.no
+
+++ DN
+menu = Dagens Naeringsliv
+title = Dagens Naeringsliv
+host = dn.no
+
+++ Nettavisen
+menu = Nettavisen
+title = Nettavisen
+host = nettavisen.no
+
+++ Adresseavisen
+menu = Adresseavisen
+title = Adresseavisen
+host = adressa.no
+
+++ Nordlys
+menu = Nordlys
+title = Nordlys
+host = nordlys.no
+
+++ TU
+menu = Teknisk Ukeblad
+title = Teknisk Ukeblad
+host = tu.no
+
+++ Digi
+menu = Digi.no
+title = Digi.no
+host = digi.no
+
+++ ITavisen
+menu = ITavisen
+title = ITavisen
+host = itavisen.no
+
++ Norsk_TV
+menu = Norsk TV
+title = Norske TV og Stroemmetjenester
+
+++ NRK_TV
+menu = NRK TV
+title = NRK TV
+host = tv.nrk.no
+
+++ TV2_Play
+menu = TV 2 Play
+title = TV 2 Play
+host = play.tv2.no
+
+++ RiksTV
+menu = RiksTV
+title = RiksTV
+host = rikstv.no
+
+++ RiksTV_Play
+menu = RiksTV Play
+title = RiksTV Play
+host = play.rikstv.no
+
+++ Viaplay
+menu = Viaplay
+title = Viaplay Norge
+host = viaplay.no
+
+++ Disney_Plus
+menu = Disney Plus
+title = Disney+
+host = disneyplus.com
+
+++ MAX_HBO
+menu = Max HBO
+title = Max
+host = play.max.com
+
+++ Paramount
+menu = Paramount Plus
+title = Paramount+
+host = paramountplus.com
+
+++ SkyShowtime
+menu = SkyShowtime
+title = SkyShowtime
+host = skyshowtime.com
+
+++ VGTV
+menu = VGTV
+title = VGTV
+host = vgtv.no
+
++ Streaming
+menu = Internasjonal Streaming
+title = Internasjonale Stroemmetjenester
+
+++ Netflix_Oslo
+menu = Netflix CDN Oslo
+title = Netflix Oslo CDN
+host = ipv4-c001-osl001-ix.1.oca.nflxvideo.net
+
+++ Netflix_Stockholm
+menu = Netflix CDN Stockholm
+title = Netflix Stockholm CDN
+host = ipv4-c001-sto001-ix.1.oca.nflxvideo.net
+
+++ Netflix_Oslo2
+menu = Netflix CDN Oslo 2
+title = Netflix Oslo CDN 2
+host = ipv4-c002-osl001-ix.1.oca.nflxvideo.net
+
+++ Spotify
+menu = Spotify
+title = Spotify
+host = dealer.spotify.com
+
+++ Spotify_AP
+menu = Spotify AP
+title = Spotify Access Point
+host = apresolve.spotify.com
+
+++ YouTube
+menu = YouTube
+title = YouTube
+host = youtube.com
+
+++ Apple_TV
+menu = Apple TV Plus
+title = Apple TV+
+host = tv.apple.com
+
+++ Amazon_Prime
+menu = Amazon Prime
+title = Amazon Prime Video
+host = primevideo.com
+
+++ Tidal
+menu = Tidal
+title = Tidal
+host = tidal.com
+
+++ Deezer
+menu = Deezer
+title = Deezer
+host = deezer.com
+
++ Gaming_Steam
+menu = Steam og Valve
+title = Steam og Valve Spillservere
+
+++ Steam_Stockholm
+menu = Steam Stockholm
+title = Steam Stockholm
+host = sto1.valve.net
+
+++ Steam_Frankfurt
+menu = Steam Frankfurt
+title = Steam Frankfurt
+host = fra1.valve.net
+
+++ Steam_Amsterdam
+menu = Steam Amsterdam
+title = Steam Amsterdam
+host = ams1.valve.net
+
+++ Steam_API
+menu = Steam API
+title = Steam Web API
+host = api.steampowered.com
+
+++ Steam_Store
+menu = Steam Store
+title = Steam Store
+host = store.steampowered.com
+
+++ Steam_Community
+menu = Steam Community
+title = Steam Community
+host = steamcommunity.com
+
++ Gaming_Riot
+menu = Riot Games
+title = Riot Games Valorant og LoL
+
+++ LoL_EUW
+menu = LoL EUW
+title = League of Legends EUW
+host = euw.leagueoflegends.com
+
+++ LoL_EUNE
+menu = LoL EUNE
+title = League of Legends EUNE
+host = 104.160.142.3
+
+++ Riot_API
+menu = Riot API
+title = Riot Games API
+host = europe.api.riotgames.com
+
++ Gaming_Blizzard
+menu = Blizzard
+title = Blizzard WoW og Overwatch
+
+++ BattleNet_EU
+menu = Battle.net EU
+title = Battle.net Europa
+host = eu.battle.net
+
+++ Blizzard_EU1
+menu = Blizzard EU 1
+title = Blizzard EU Server 1
+host = 185.60.112.157
+
+++ Blizzard_EU2
+menu = Blizzard EU 2
+title = Blizzard EU Server 2
+host = 185.60.112.158
+
++ Gaming_PSN
+menu = PlayStation
+title = Sony PlayStation Network
+
+++ PSN
+menu = PlayStation Network
+title = PlayStation Network
+host = playstation.com
+
+++ PSN_Store
+menu = PlayStation Store
+title = PlayStation Store
+host = store.playstation.com
+
+++ PSN_DL
+menu = PlayStation Download
+title = PlayStation Download
+host = gs2.ww.prod.dl.playstation.net
+
++ Gaming_Xbox
+menu = Xbox og Microsoft
+title = Xbox Live og Microsoft Gaming
+
+++ Xbox_Live
+menu = Xbox Live
+title = Xbox Live
+host = xboxlive.com
+
+++ Xbox_Multi
+menu = Xbox Multiplayer
+title = Xbox Multiplayer
+host = multiplayer.xboxlive.com
+
+++ Minecraft
+menu = Minecraft
+title = Minecraft
+host = minecraft.net
+
+++ Mojang
+menu = Mojang
+title = Mojang Session Server
+host = sessionserver.mojang.com
+
++ Gaming_Epic
+menu = Epic og Fortnite
+title = Epic Games og Fortnite
+
+++ Epic
+menu = Epic Games
+title = Epic Games
+host = epicgames.com
+
+++ Epic_Store
+menu = Epic Store
+title = Epic Games Store
+host = store.epicgames.com
+
++ Gaming_EA
+menu = EA Games
+title = Electronic Arts
+
+++ EA
+menu = EA
+title = EA Games
+host = ea.com
+
+++ Origin
+menu = Origin
+title = Origin EA App
+host = origin.com
+
++ Gaming_Andre
+menu = Andre Spill
+title = Andre Spilltjenester
+
+++ Ubisoft
+menu = Ubisoft
+title = Ubisoft Connect
+host = ubisoft.com
+
+++ Roblox
+menu = Roblox
+title = Roblox
+host = roblox.com
+
+++ Rockstar
+menu = Rockstar GTA
+title = Rockstar Games
+host = socialclub.rockstargames.com
+
+++ Nintendo
+menu = Nintendo
+title = Nintendo Switch
+host = eshop.nintendo.net
+
+++ Faceit
+menu = FACEIT
+title = FACEIT CS2
+host = faceit.com
+
++ Live_Streaming
+menu = Live Streaming
+title = Live Streaming Tjenester
+
+++ Twitch_Oslo
+menu = Twitch Oslo
+title = Twitch Oslo
+host = live-osl.twitch.tv
+
+++ Twitch_Stockholm
+menu = Twitch Stockholm
+title = Twitch Stockholm
+host = live-arn.twitch.tv
+
+++ Twitch_Amsterdam
+menu = Twitch Amsterdam
+title = Twitch Amsterdam
+host = live-ams.twitch.tv
+
+++ Twitch_Frankfurt
+menu = Twitch Frankfurt
+title = Twitch Frankfurt
+host = live-fra.twitch.tv
+
+++ Twitch_Copenhagen
+menu = Twitch Copenhagen
+title = Twitch Koebenhavn
+host = live-cph.twitch.tv
+
+++ Twitch
+menu = Twitch
+title = Twitch
+host = twitch.tv
+
+++ Kick
+menu = Kick.com
+title = Kick
+host = kick.com
+
++ Sosiale_Medier
+menu = Sosiale Medier
+title = Sosiale Medier og Kommunikasjon
+
+++ Discord
+menu = Discord
+title = Discord
+host = discord.com
+
+++ Instagram
+menu = Instagram
+title = Instagram
+host = instagram.com
+
+++ Facebook
+menu = Facebook
+title = Facebook
+host = facebook.com
+
+++ Twitter_X
+menu = X Twitter
+title = X Twitter
+host = x.com
+
+++ TikTok
+menu = TikTok
+title = TikTok
+host = tiktok.com
+
+++ Snapchat
+menu = Snapchat
+title = Snapchat
+host = snapchat.com
+
+++ Reddit
+menu = Reddit
+title = Reddit
+host = reddit.com
+
+++ LinkedIn
+menu = LinkedIn
+title = LinkedIn
+host = linkedin.com
+
+++ Telegram
+menu = Telegram
+title = Telegram
+host = telegram.org
+
+++ Signal
+menu = Signal
+title = Signal
+host = signal.org
+
++ Norske_Tjenester
+menu = Norske Tjenester
+title = Norsk E-handel og Offentlige Tjenester
+
+++ Finn
+menu = Finn.no
+title = Finn.no
+host = finn.no
+
+++ Komplett
+menu = Komplett
+title = Komplett
+host = komplett.no
+
+++ Elkjop
+menu = Elkjoep
+title = Elkjoep
+host = elkjop.no
+
+++ Vipps
+menu = Vipps
+title = Vipps
+host = vipps.no
+
+++ DNB
+menu = DNB
+title = DNB Bank
+host = dnb.no
+
+++ BankID
+menu = BankID
+title = BankID
+host = bankid.no
+
+++ NAV
+menu = NAV
+title = NAV
+host = nav.no
+
+++ Altinn
+menu = Altinn
+title = Altinn
+host = altinn.no
+
+++ Helsenorge
+menu = Helsenorge
+title = Helsenorge
+host = helsenorge.no
+
+++ Skatteetaten
+menu = Skatteetaten
+title = Skatteetaten
+host = skatteetaten.no
+
+++ Posten
+menu = Posten
+title = Posten
+host = posten.no
+
++ Sky_CDN
+menu = Sky og CDN
+title = Skytjenester og CDN
+
+++ Google
+menu = Google
+title = Google
+host = google.com
+
+++ AWS_EU_West
+menu = AWS EU West
+title = Amazon AWS EU West
+host = ec2.eu-west-1.amazonaws.com
+
+++ AWS_EU_North
+menu = AWS EU North
+title = Amazon AWS EU North
+host = ec2.eu-north-1.amazonaws.com
+
+++ Cloudflare
+menu = Cloudflare
+title = Cloudflare
+host = cloudflare.com
+
+++ GitHub
+menu = GitHub
+title = GitHub
+host = github.com
+
+++ Fastly
+menu = Fastly
+title = Fastly CDN
+host = fastly.com
+
++ Microsoft_365
+menu = Microsoft 365
+title = Microsoft Tjenester
+
+++ Teams
+menu = Teams
+title = Microsoft Teams
+host = teams.microsoft.com
+
+++ Office365
+menu = Office 365
+title = Office 365
+host = office.com
+
+++ Zoom
+menu = Zoom
+title = Zoom
+host = zoom.us
+
+++ Slack
+menu = Slack
+title = Slack
+host = slack.com
+
++ Norden
+menu = Norden
+title = Nordiske Referanser
+
+++ SVT
+menu = SVT Sverige
+title = SVT
+host = svt.se
+
+++ DR
+menu = DR Danmark
+title = DR Danmark
+host = dr.dk
+
+++ YLE
+menu = YLE Finland
+title = YLE Finland
+host = yle.fi
+
+++ Telia_SE
+menu = Telia Sverige
+title = Telia Sverige
+host = telia.se
+
+++ TDC
+menu = TDC Danmark
+title = TDC
+host = tdc.dk
+
++ Sikkerhet
+menu = Sikkerhet og VPN
+title = Sikkerhets og VPN-tjenester
+
+++ NordVPN
+menu = NordVPN
+title = NordVPN
+host = nordvpn.com
+
+++ Mullvad
+menu = Mullvad
+title = Mullvad VPN
+host = mullvad.net
+
+++ ProtonVPN
+menu = Proton VPN
+title = Proton VPN
+host = proton.me
+
+++ NSM
+menu = NSM NorCERT
+title = NSM
+host = nsm.no
